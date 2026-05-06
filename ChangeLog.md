@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [8.2.0](https://github.com/cedx/setup-hashlink/compare/v8.1.0...v8.2.0)
+- Removed the module's `DefaultCommandPrefix` in favor of a hard-coded command prefix.
+
 ## Version [8.1.0](https://github.com/cedx/setup-hashlink/compare/v8.0.0...v8.1.0)
 - Restored the [PowerShell](https://learn.microsoft.com/en-us/powershell) source code.
 
