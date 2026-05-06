@@ -10,7 +10,7 @@ using module ../ReleaseAsset.psm1
 .OUTPUTS
 	The newly created release.
 #>
-function New-Release {
+function New-HashLinkRelease {
 	[CmdletBinding()]
 	[OutputType([Release])]
 	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]

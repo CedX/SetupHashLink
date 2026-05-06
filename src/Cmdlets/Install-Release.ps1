@@ -11,7 +11,7 @@ using module ../Setup.psm1
 .OUTPUTS
 	The path to the installation directory.
 #>
-function Install-Release {
+function Install-HashLinkRelease {
 	[CmdletBinding(DefaultParameterSetName = "Constraint")]
 	[OutputType([string])]
 	param (

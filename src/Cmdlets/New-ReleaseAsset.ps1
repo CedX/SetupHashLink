@@ -8,7 +8,7 @@ using module ../ReleaseAsset.psm1
 .OUTPUTS
 	The newly created release asset.
 #>
-function New-ReleaseAsset {
+function New-HashLinkReleaseAsset {
 	[CmdletBinding()]
 	[OutputType([ReleaseAsset])]
 	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]

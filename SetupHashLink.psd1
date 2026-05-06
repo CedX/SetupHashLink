@@ -1,7 +1,7 @@
 ﻿@{
-	DefaultCommandPrefix = "HashLink"
 	ModuleVersion = "8.1.0"
 	PowerShellVersion = "7.4"
+	RootModule = "src/Main.psm1"
 
 	Author = "Cédric Belin <cedx@outlook.com>"
 	CompanyName = "Cedric-Belin.fr"
@@ -14,23 +14,12 @@
 	VariablesToExport = @()
 
 	FunctionsToExport = @(
-		"Find-Release"
-		"Get-Platform"
-		"Get-Release"
-		"Install-Release"
-		"New-Release"
-		"New-ReleaseAsset"
-		"Test-Release"
-	)
-
-	NestedModules = @(
-		"src/Cmdlets/Find-Release.psm1"
-		"src/Cmdlets/Get-Platform.psm1"
-		"src/Cmdlets/Get-Release.psm1"
-		"src/Cmdlets/Install-Release.psm1"
-		"src/Cmdlets/New-Release.psm1"
-		"src/Cmdlets/New-ReleaseAsset.psm1"
-		"src/Cmdlets/Test-Release.psm1"
+		"Find-HashLinkRelease"
+		"Get-HashLinkRelease"
+		"Install-HashLinkRelease"
+		"New-HashLinkRelease"
+		"New-HashLinkReleaseAsset"
+		"Test-HashLinkRelease"
 	)
 
 	PrivateData = @{

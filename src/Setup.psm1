@@ -1,5 +1,4 @@
 using namespace System.IO
-using module ./Cmdlets/Get-Platform.psm1
 using module ./Platform.psm1
 using module ./Release.psm1
 
@@ -70,7 +69,7 @@ class Setup {
 		The path to the output directory.
 	#>
 	hidden [string] Compile([string] $Directory) {
-		$platform = Get-Platform
+		$platform = Get-HashLinkPlatform
 		if ($platform -eq [Platform]::Windows) { throw [PlatformNotSupportedException] "Compilation is not supported on Windows platform." }
 
 		Push-Location $Directory

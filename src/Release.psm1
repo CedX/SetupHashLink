@@ -1,4 +1,3 @@
-using module ./Cmdlets/Get-Platform.psm1
 using module ./Platform.psm1
 using module ./ReleaseAsset.psm1
 
@@ -131,7 +130,7 @@ class Release {
 		`$true` if this release is provided as source code, otherwise `$false`.
 	#>
 	[bool] IsSource() {
-		return -not $this.GetAsset((Get-Platform))
+		return -not $this.GetAsset((Get-HashLinkPlatform))
 	}
 
 	<#
@@ -151,7 +150,7 @@ class Release {
 		The download URL.
 	#>
 	[uri] Url() {
-		$asset = $this.GetAsset((Get-Platform))
+		$asset = $this.GetAsset((Get-HashLinkPlatform))
 		$baseUrl = [uri] "https://github.com/HaxeFoundation/hashlink/"
 		return [uri]::new($baseUrl, $asset ? "releases/download/$($this.Tag())/$($asset.File)" : "archive/refs/tags/$($this.Tag()).zip")
 	}

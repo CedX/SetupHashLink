@@ -8,7 +8,7 @@ using module ../Release.psm1
 .OUTPUTS
 	The release corresponding to the specified version, or `$null` if not found.
 #>
-function Get-Release {
+function Get-HashLinkRelease {
 	[CmdletBinding()]
 	[OutputType([Release])]
 	param (

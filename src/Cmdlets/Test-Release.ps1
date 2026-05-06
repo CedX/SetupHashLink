@@ -10,7 +10,7 @@ using module ../Release.psm1
 .OUTPUTS
 	`$true` if a release with the specified version exists, otherwise `$false`.
 #>
-function Test-Release {
+function Test-HashLinkRelease {
 	[CmdletBinding(DefaultParameterSetName = "Version")]
 	[OutputType([bool])]
 	param (
