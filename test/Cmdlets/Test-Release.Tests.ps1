@@ -3,9 +3,7 @@
 	Tests the features of the `Test-Release` cmdlet.
 #>
 Describe "Test-Release" {
-	BeforeAll {
-		. "$PSScriptRoot/BeforeAll.ps1"
-	}
+	BeforeAll { . "$PSScriptRoot/BeforeAll.ps1" }
 
 	It "should return `$true for the latest release" {
 		Test-HashLinkRelease $latestRelease.Version | Should -BeTrue

@@ -3,9 +3,7 @@
 	Tests the features of the `Find-Release` cmdlet.
 #>
 Describe "Find-Release" {
-	BeforeAll {
-		. "$PSScriptRoot/BeforeAll.ps1"
-	}
+	BeforeAll { . "$PSScriptRoot/BeforeAll.ps1" }
 
 	It "should return `$null if no release matches the version constraint" {
 		Find-HashLinkRelease $nonExistingRelease.Version | Should -BeNullOrEmpty
