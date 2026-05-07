@@ -20,8 +20,8 @@ function Get-HashLinkPlatform {
 	param ()
 
 	switch ($true) {
-		$IsLinux { [Platform]::Linux }
-		$IsMacOS { [Platform]::MacOS }
+		$IsLinux { return [Platform]::Linux }
+		$IsMacOS { return [Platform]::MacOS }
 		default { [Platform]::Windows }
 	}
 }
