@@ -1,5 +1,5 @@
 using namespace System.Diagnostics.CodeAnalysis
-Import-Module "$PSScriptRoot/../../SetupHashLink.psd1"
+using module ../../SetupHashLink.psd1
 
 [SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
 $existingRelease = New-HashLinkRelease "1.15.0" @(

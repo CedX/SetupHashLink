@@ -1,11 +1,10 @@
 #!/usr/bin/env pwsh
+using module ./SetupHashLink.psd1
+
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 
-Import-Module "$PSScriptRoot/SetupHashLink.psd1"
-if (-not (Test-Path Env:SETUP_HASHLINK_VERSION)) { $Env:SETUP_HASHLINK_VERSION = "Latest" }
-
-$release = Find-HashLinkRelease $Env:SETUP_HASHLINK_VERSION
+$release = Find-HashLinkRelease ($Env:SETUP_HASHLINK_VERSION ? $Env:SETUP_HASHLINK_VERSION : "Latest")
 if (-not $release) { throw "No release matches the specified version constraint." }
 
 $path = Install-HashLinkRelease -InputObject $release
