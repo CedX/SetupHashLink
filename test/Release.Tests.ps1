@@ -94,7 +94,7 @@ Describe "Release" {
 		}
 
 		It "should return the release corresponding to the version number if it exists" {
-			[Release]::Get("1.8.0")?.Version | Should -Be ([version] "1.8.0")
+			[Release]::Get("1.8.0")?.Version | Should -Be ([semver] "1.8.0")
 		}
 	}
 

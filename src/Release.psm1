@@ -25,7 +25,7 @@ class Release {
 		The version number.
 	#>
 	[ValidateNotNull()]
-	[version] $Version
+	[semver] $Version
 
 	<#
 	.SYNOPSIS
@@ -35,7 +35,7 @@ class Release {
 	#>
 	Release([string] $Version) {
 		$this.Assets = @()
-		$this.Version = [version] $Version
+		$this.Version = [semver] $Version
 	}
 
 	<#
@@ -48,7 +48,7 @@ class Release {
 	#>
 	Release([string] $Version, [ReleaseAsset[]] $Assets) {
 		$this.Assets = $Assets
-		$this.Version = [version] $Version
+		$this.Version = [semver] $Version
 	}
 
 	<#
@@ -57,7 +57,7 @@ class Release {
 	.PARAMETER Version
 		The version number.
 	#>
-	Release([version] $Version) {
+	Release([semver] $Version) {
 		$this.Assets = @()
 		$this.Version = $Version
 	}
@@ -80,7 +80,7 @@ class Release {
 	.PARAMETER Assets
 		The associated assets.
 	#>
-	Release([version] $Version, [ReleaseAsset[]] $Assets) {
+	Release([semver] $Version, [ReleaseAsset[]] $Assets) {
 		$this.Assets = $Assets
 		$this.Version = $Version
 	}
@@ -140,7 +140,8 @@ class Release {
 		The associated Git tag.
 	#>
 	[string] Tag() {
-		return $this.Version.ToString($this.Version.Build -gt 0 ? 3 : 2)
+		$tag = "$($this.Version.Major).$($this.Version.Minor)"
+		return $this.Version.Patch ? "$tag.$($this.Version.Patch)" : $tag
 	}
 
 	<#
@@ -192,7 +193,7 @@ class Release {
 	.OUTPUTS
 		The release corresponding to the specified version, or `$null` if not found.
 	#>
-	static [Release] Get([version] $Version) {
+	static [Release] Get([semver] $Version) {
 		$releases = [Release]::Data.Where({ $_.Version -eq $Version }, "First")
 		return $releases ? $releases[0] : $null
 	}

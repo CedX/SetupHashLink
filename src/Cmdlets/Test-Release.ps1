@@ -16,7 +16,7 @@ function Test-HashLinkRelease {
 	param (
 		# The version number of the release to be tested.
 		[Parameter(Mandatory, ParameterSetName = "Version", Position = 0, ValueFromPipeline)]
-		[version] $Version,
+		[semver] $Version,
 
 		# The release to be tested.
 		[Parameter(Mandatory, ParameterSetName = "InputObject", ValueFromPipeline)]

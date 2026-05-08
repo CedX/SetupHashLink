@@ -17,7 +17,7 @@ function New-HashLinkRelease {
 	param (
 		# The version number.
 		[Parameter(Mandatory, Position = 0, ValueFromPipeline)]
-		[version] $Version,
+		[semver] $Version,
 
 		# The associated assets.
 		[Parameter(Position = 1)]
