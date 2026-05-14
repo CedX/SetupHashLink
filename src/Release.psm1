@@ -67,8 +67,8 @@ class Release {
 		Initializes the class.
 	#>
 	static Release() {
-		[Release]::Data = (Import-PowerShellDataFile "$PSScriptRoot/ReleaseData.psd1").Releases.ForEach{
-			[Release]::new($_.Version, $_.Assets.ForEach{ [ReleaseAsset]::new($_.Platform, $_.File) })
+		[Release]::Data = foreach ($release in (Import-PowerShellDataFile "$PSScriptRoot/ReleaseData.psd1").Releases) {
+			[Release]::new($release.Version, $release.Assets.ForEach{ [ReleaseAsset]::new($_.Platform, $_.File) })
 		}
 	}
 
