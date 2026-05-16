@@ -17,7 +17,7 @@ jobs:
       - name: Set up Lix
         uses: lix-pm/setup-lix@master
       - name: Set up HashLink
-        uses: cedx/setup-hashlink@v8
+        uses: cedx/SetupHashLink@v8
         with:
           version: latest
       - name: Install dependencies

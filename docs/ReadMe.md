@@ -10,12 +10,12 @@ Set up the HashLink VM in a workflow:
 
 ```yaml
 steps:
-  - uses: cedx/setup-hashlink@v8
+  - uses: cedx/SetupHashLink@v8
   - run: hl --version
 ```
 
 > [!NOTE]
-> A sample workflow can be found in this [workflow.yaml](https://github.com/cedx/setup-hashlink/blob/main/example/workflow.yaml) file.
+> A sample workflow can be found in this [workflow.yaml](https://github.com/CedX/SetupHashLink/blob/main/example/workflow.yaml) file.
 
 ## Usage
 - [Inputs](Inputs.md)

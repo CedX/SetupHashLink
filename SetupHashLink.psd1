@@ -24,9 +24,9 @@
 
 	PrivateData = @{
 		PSData = @{
-			LicenseUri = "https://github.com/cedx/setup-hashlink/blob/main/License.md"
-			ProjectUri = "https://github.com/cedx/setup-hashlink"
-			ReleaseNotes = "https://github.com/cedx/setup-hashlink/releases"
+			LicenseUri = "https://github.com/CedX/SetupHashLink/blob/main/License.md"
+			ProjectUri = "https://github.com/CedX/SetupHashLink"
+			ReleaseNotes = "https://github.com/CedX/SetupHashLink/releases"
 			Tags = "actions", "ci", "hashlink", "haxe"
 		}
 	}
