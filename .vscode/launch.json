@@ -3,9 +3,10 @@
 	"configurations": [
 		{
 			"name": "Script",
-			"request": "launch",
 			"type": "PowerShell",
-			"script": "${workspaceFolder}/Debug.ps1"
+			"request": "launch",
+			"script": "${workspaceFolder}/Debug.ps1",
+			"createTemporaryIntegratedConsole": true
 		}
 	]
 }
