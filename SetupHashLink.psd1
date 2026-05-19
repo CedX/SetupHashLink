@@ -1,7 +1,7 @@
 ﻿@{
 	ModuleVersion = "8.2.0"
 	PowerShellVersion = "7.4"
-	RootModule = "src/Main.psm1"
+	RootModule = "Sources/Main.psm1"
 
 	Author = "Cédric Belin <cedx@outlook.com>"
 	CompanyName = "Cedric-Belin.fr"

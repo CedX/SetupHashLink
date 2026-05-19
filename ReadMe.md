@@ -2,8 +2,8 @@
 Set up your [GitHub Actions](https://docs.github.com/en/actions) workflow with a specific version of the [HashLink VM](https://hashlink.haxe.org).
 
 ## Documentation
-- [User guide](https://github.com/CedX/SetupHashLink/tree/main/docs)
-- [Examples](https://github.com/CedX/SetupHashLink/tree/main/example)
+- [User guide](https://github.com/CedX/SetupHashLink/tree/main/Documentation)
+- [Examples](https://github.com/CedX/SetupHashLink/tree/main/Examples)
 
 ## Development
 - [Git repository](https://github.com/CedX/SetupHashLink)

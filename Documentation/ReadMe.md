@@ -15,7 +15,7 @@ steps:
 ```
 
 > [!NOTE]
-> A sample workflow can be found in this [workflow.yaml](https://github.com/CedX/SetupHashLink/blob/main/example/workflow.yaml) file.
+> A sample workflow can be found in this [workflow.yaml](https://github.com/CedX/SetupHashLink/blob/main/Examples/workflow.yaml) file.
 
 ## Usage
 - [Inputs](Inputs.md)

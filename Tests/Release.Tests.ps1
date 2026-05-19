@@ -1,7 +1,7 @@
 using namespace System.Diagnostics.CodeAnalysis
-using module ../src/Platform.psm1
-using module ../src/Release.psm1
-using module ../src/ReleaseAsset.psm1
+using module ../Sources/Platform.psm1
+using module ../Sources/Release.psm1
+using module ../Sources/ReleaseAsset.psm1
 
 <#
 .SYNOPSIS
