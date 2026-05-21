@@ -1,2 +1,3 @@
 "Updating the dependencies..."
-(Import-PowerShellDataFile PSModules.psd1).Keys | Update-PSResource -TrustRepository
+$modules = Import-PowerShellDataFile PSModules.psd1
+foreach ($key in $modules.Keys) { Update-PSResource $module -Repository $modules[$key].repository -TrustRepository }
