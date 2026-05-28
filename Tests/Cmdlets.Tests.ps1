@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-	Tests the features of the `Find-Release` cmdlet.
+	Tests the features of the `Find-HashLinkRelease` cmdlet.
 #>
-Describe "Find-Release" {
+Describe "Find-HashLinkRelease" {
 	BeforeAll { . "$PSScriptRoot/BeforeAll.ps1" }
 
 	It "should return `$null if no release matches the version constraint" {
@@ -27,9 +27,9 @@ Describe "Find-Release" {
 
 <#
 .SYNOPSIS
-	Tests the features of the `Get-Release` cmdlet.
+	Tests the features of the `Get-HashLinkRelease` cmdlet.
 #>
-Describe "Get-Release" {
+Describe "Get-HashLinkRelease" {
 	BeforeAll { . "$PSScriptRoot/BeforeAll.ps1" }
 
 	It "should return `$null if no release matches to the version number" {
@@ -43,9 +43,9 @@ Describe "Get-Release" {
 
 <#
 .SYNOPSIS
-	Tests the features of the `Test-Release` cmdlet.
+	Tests the features of the `Test-HashLinkRelease` cmdlet.
 #>
-Describe "Test-Release" {
+Describe "Test-HashLinkRelease" {
 	BeforeAll { . "$PSScriptRoot/BeforeAll.ps1" }
 
 	It "should return `$true for the latest release" {
