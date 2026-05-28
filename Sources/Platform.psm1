@@ -7,21 +7,3 @@ enum Platform {
 	MacOS
 	Windows
 }
-
-<#
-.SYNOPSIS
-	Gets the current platform.
-.OUTPUTS
-	The current platform.
-#>
-function Get-HashLinkPlatform {
-	[CmdletBinding()]
-	[OutputType([Platform])]
-	param ()
-
-	switch ($true) {
-		$IsLinux { return [Platform]::Linux }
-		$IsMacOS { return [Platform]::MacOS }
-		default { [Platform]::Windows }
-	}
-}

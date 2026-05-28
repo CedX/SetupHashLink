@@ -15,6 +15,7 @@
 
 	FunctionsToExport = @(
 		"Find-HashLinkRelease"
+		"Get-HashLinkPlatform"
 		"Get-HashLinkRelease"
 		"Install-HashLinkRelease"
 		"New-HashLinkRelease"

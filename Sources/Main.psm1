@@ -27,6 +27,24 @@ function Find-HashLinkRelease {
 
 <#
 .SYNOPSIS
+	Gets the current platform.
+.OUTPUTS
+	The current platform.
+#>
+function Get-HashLinkPlatform {
+	[CmdletBinding()]
+	[OutputType([Platform])]
+	param ()
+
+	switch ($true) {
+		$IsLinux { return [Platform]::Linux }
+		$IsMacOS { return [Platform]::MacOS }
+		default { [Platform]::Windows }
+	}
+}
+
+<#
+.SYNOPSIS
 	Gets the release corresponding to the specified version.
 .INPUTS
 	A string that contains a version number.
