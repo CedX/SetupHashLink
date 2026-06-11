@@ -69,7 +69,7 @@ class Setup {
 		The path to the output directory.
 	#>
 	hidden [string] Compile([string] $Directory) {
-		$platform = Get-HashLinkPlatform
+		$platform = Get-Platform
 		if ($platform -eq [Platform]::Windows) { throw [PlatformNotSupportedException] "Compilation is not supported on Windows platform." }
 
 		Push-Location $Directory

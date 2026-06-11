@@ -129,7 +129,7 @@ class Release {
 		`$true` if this release is provided as source code, otherwise `$false`.
 	#>
 	[bool] IsSource() {
-		return -not $this.GetAsset((Get-HashLinkPlatform))
+		return -not $this.GetAsset((Get-Platform))
 	}
 
 	<#
@@ -150,7 +150,7 @@ class Release {
 		The download URL.
 	#>
 	[uri] Url() {
-		$asset = $this.GetAsset((Get-HashLinkPlatform))
+		$asset = $this.GetAsset((Get-Platform))
 		$baseUrl = [uri] "https://github.com/HaxeFoundation/hashlink/"
 		return [uri]::new($baseUrl, $asset ? "releases/download/$($this.Tag())/$($asset.File)" : "archive/refs/tags/$($this.Tag()).zip")
 	}
