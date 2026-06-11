@@ -247,7 +247,6 @@ class Release {
 .SYNOPSIS
 	Represents an asset of a HashLink release.
 #>
-[NoRunspaceAffinity()]
 class ReleaseAsset {
 
 	<#
