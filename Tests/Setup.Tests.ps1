@@ -17,7 +17,7 @@ Describe "Setup" {
 
 	Context "Download" {
 		It "should properly download and extract the HashLink VM" {
-			$setup = [Setup] $latestRelease
+			$setup = [Setup]::new($latestRelease)
 			$isSource = $setup.Release.IsSource()
 			$path = $setup.Download()
 
@@ -31,7 +31,7 @@ Describe "Setup" {
 
 	Context "Install" {
 		It "should add the HashLink VM binaries to the PATH environment variable" {
-			$setup = [Setup] $latestRelease
+			$setup = [Setup]::new($latestRelease)
 			$path = $setup.Install()
 
 			$Env:PATH | Should -BeLikeExactly "*$path*"
