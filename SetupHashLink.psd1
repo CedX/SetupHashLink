@@ -1,4 +1,5 @@
 ﻿@{
+	DefaultCommandPrefix = "HashLink"
 	ModuleVersion = "8.2.0"
 	PowerShellVersion = "7.4"
 	RootModule = "Sources/Main.psm1"
@@ -14,13 +15,13 @@
 	VariablesToExport = @()
 
 	FunctionsToExport = @(
-		"Find-HashLinkRelease"
-		"Get-HashLinkPlatform"
-		"Get-HashLinkRelease"
-		"Install-HashLinkRelease"
-		"New-HashLinkRelease"
-		"New-HashLinkReleaseAsset"
-		"Test-HashLinkRelease"
+		"Find-Release"
+		"Get-Platform"
+		"Get-Release"
+		"Install-Release"
+		"New-Release"
+		"New-ReleaseAsset"
+		"Test-Release"
 	)
 
 	PrivateData = @{

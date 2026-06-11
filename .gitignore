@@ -1,4 +1,6 @@
 /**/*.user
 /.idea/
 /.vs/
+/*/obj/
+/Binaries/
 /Temp/
