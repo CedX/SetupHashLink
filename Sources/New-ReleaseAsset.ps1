@@ -11,7 +11,7 @@ using module ./Release.psm1
 function New-ReleaseAsset {
 	[CmdletBinding()]
 	[OutputType([ReleaseAsset])]
-	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions")]
+	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The target platform.
 		[Parameter(Mandatory, Position = 0)]

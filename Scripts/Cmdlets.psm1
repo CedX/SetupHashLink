@@ -5,7 +5,7 @@ using namespace System.Diagnostics.CodeAnalysis
 	Creates a new Git tag.
 #>
 function New-GitTag {
-	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions")]
+	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The tag name.
 		[Parameter(Mandatory, Position = 0)]
