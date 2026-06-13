@@ -8,7 +8,7 @@ using module ../Sources/Setup.psm1
 #>
 Describe "Setup" {
 	BeforeAll {
-		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
+		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments")]
 		$latestRelease = [Release]::Latest()
 
 		if (-not (Test-Path Env:GITHUB_ENV)) { $Env:GITHUB_ENV = Join-Path var GitHub-Env.txt }

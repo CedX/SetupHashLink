@@ -12,7 +12,7 @@ using module ./Release.psm1
 function New-Release {
 	[CmdletBinding()]
 	[OutputType([Release])]
-	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
+	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions")]
 	param (
 		# The version number.
 		[Parameter(Mandatory, Position = 0, ValueFromPipeline)]

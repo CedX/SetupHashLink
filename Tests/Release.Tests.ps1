@@ -8,17 +8,17 @@ using module ../Sources/Release.psm1
 #>
 Describe "Release" {
 	BeforeAll {
-		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
+		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments")]
 		$existingRelease = [Release]::new("1.15.0", @(
 			[ReleaseAsset]::new([Platform]::Linux, "hashlink-1.15.0.zip")
 			[ReleaseAsset]::new([Platform]::MacOS, "hashlink-1.15.0.zip")
 			[ReleaseAsset]::new([Platform]::Windows, "hashlink-1.15.0.zip")
 		))
 
-		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
+		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments")]
 		$latestRelease = [Release]::Latest()
 
-		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
+		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments")]
 		$nonExistingRelease = [Release] "666.6.6"
 	}
 
