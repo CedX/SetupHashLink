@@ -79,11 +79,8 @@ Describe "Release" {
 			[Release]::Find("<=1.10")?.Version | Should -Be ([Release] "1.10.0")
 		}
 
-		It "should throw if the version constraint is invalid" -TestCases @(
-			@{ Version = "abc" }
-			@{ Version = "?1.10" }
-		) {
-			{ [Release]::Find($version) } | Should -Throw
+		It "should throw if the version constraint is invalid" -ForEach "abc", "?1.10" {
+			{ [Release]::Find($_) } | Should -Throw
 		}
 	}
 
