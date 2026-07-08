@@ -24,21 +24,21 @@ Describe "Release" {
 
 	Context "Exists" {
 		It "should return `$true if the release exists" {
-			$existingRelease.Exists() | Should -BeTrue
+			$existingRelease.Exists() | Should-BeTrue
 		}
 
 		It "should return `$false if the release does not exist" {
-			$nonExistingRelease.Exists() | Should -BeFalse
+			$nonExistingRelease.Exists() | Should-BeFalse
 		}
 	}
 
 	Context "IsSource" {
 		It "should return `$true if the release is provided as source code" {
-			$nonExistingRelease.IsSource() | Should -BeTrue
+			$nonExistingRelease.IsSource() | Should-BeTrue
 		}
 
 		It "should return `$false if the release is provided as binary" {
-			$existingRelease.IsSource() | Should -BeFalse
+			$existingRelease.IsSource() | Should-BeFalse
 		}
 	}
 
