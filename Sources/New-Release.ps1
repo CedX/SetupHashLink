@@ -15,11 +15,11 @@ function New-Release {
 	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The version number.
-		[Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+		[Parameter(Mandatory, Position = 1, ValueFromPipeline)]
 		[semver] $Version,
 
 		# The associated assets.
-		[Parameter(Position = 1)]
+		[Parameter(Position = 2)]
 		[ValidateNotNull()]
 		[ReleaseAsset[]] $Assets = @()
 	)

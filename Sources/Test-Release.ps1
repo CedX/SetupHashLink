@@ -15,7 +15,7 @@ function Test-Release {
 	[OutputType([bool])]
 	param (
 		# The version number of the release to be tested.
-		[Parameter(Mandatory, ParameterSetName = "Version", Position = 0, ValueFromPipeline)]
+		[Parameter(Mandatory, ParameterSetName = "Version", Position = 1, ValueFromPipeline)]
 		[semver] $Version,
 
 		# The release to be tested.

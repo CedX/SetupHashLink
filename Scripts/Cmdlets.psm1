@@ -8,7 +8,7 @@ function New-GitTag {
 	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The tag name.
-		[Parameter(Mandatory, Position = 0)]
+		[Parameter(Mandatory, Position = 1)]
 		[string] $Name
 	)
 
@@ -29,7 +29,7 @@ function Test-PSResourceUpdate {
 	[OutputType([psobject])]
 	param (
 		# The PowerShell module to be checked.
-		[Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+		[Parameter(Mandatory, Position = 1, ValueFromPipeline)]
 		[Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo] $InputObject
 	)
 

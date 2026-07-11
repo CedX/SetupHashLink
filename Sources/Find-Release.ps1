@@ -13,7 +13,7 @@ function Find-Release {
 	[OutputType([Release])]
 	param (
 		# The version constraint.
-		[Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+		[Parameter(Mandatory, Position = 1, ValueFromPipeline)]
 		[string] $Constraint
 	)
 

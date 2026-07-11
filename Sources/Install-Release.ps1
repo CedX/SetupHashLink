@@ -16,7 +16,7 @@ function Install-Release {
 	[OutputType([string])]
 	param (
 		# The version constraint of the release to be installed.
-		[Parameter(Mandatory, ParameterSetName = "Constraint", Position = 0, ValueFromPipeline)]
+		[Parameter(Mandatory, ParameterSetName = "Constraint", Position = 1, ValueFromPipeline)]
 		[string] $Constraint,
 
 		# The instance of the release to be installed.

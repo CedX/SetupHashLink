@@ -14,11 +14,11 @@ function New-ReleaseAsset {
 	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The target platform.
-		[Parameter(Mandatory, Position = 0)]
+		[Parameter(Mandatory, Position = 1)]
 		[Platform] $Platform,
 
 		# The target file.
-		[Parameter(Mandatory, Position = 1)]
+		[Parameter(Mandatory, Position = 2)]
 		[string] $File
 	)
 

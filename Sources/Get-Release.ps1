@@ -13,7 +13,7 @@ function Get-Release {
 	[OutputType([Release])]
 	param (
 		# The version number. Use `*` or `Latest` to get the latest release.
-		[Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+		[Parameter(Mandatory, Position = 1, ValueFromPipeline)]
 		[string] $Version
 	)
 
