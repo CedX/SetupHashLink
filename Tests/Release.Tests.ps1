@@ -24,83 +24,83 @@ Describe "Release" {
 
 	Context "Exists" {
 		It "should return `$true if the release exists" {
-			$existingRelease.Exists() | Should-BeTrue
+			Should-BeTrue $existingRelease.Exists()
 		}
 
 		It "should return `$false if the release does not exist" {
-			$nonExistingRelease.Exists() | Should-BeFalse
+			Should-BeFalse $nonExistingRelease.Exists()
 		}
 	}
 
 	Context "IsSource" {
 		It "should return `$true if the release is provided as source code" {
-			$nonExistingRelease.IsSource() | Should-BeTrue
+			Should-BeTrue $nonExistingRelease.IsSource()
 		}
 
 		It "should return `$false if the release is provided as binary" {
-			$existingRelease.IsSource() | Should-BeFalse
+			Should-BeFalse $existingRelease.IsSource()
 		}
 	}
 
 	Context "Tag" {
 		It "should not include the patch component if it's zero" {
-			$existingRelease.Tag() | Should -Be "1.15"
+			Should-BeString "1.15" $existingRelease.Tag()
 		}
 
 		It "should include the patch component if it's greater than zero" {
-			$nonExistingRelease.Tag() | Should -Be "666.6.6"
+			Should-BeString "666.6.6" $nonExistingRelease.Tag()
 		}
 	}
 
 	Context "Url" {
 		It "should point to a GitHub tag if the release is provided as source code" {
-			$nonExistingRelease.Url() | Should -BeExactly "https://github.com/HaxeFoundation/hashlink/archive/refs/tags/666.6.6.zip"
+			Should-BeString "https://github.com/HaxeFoundation/hashlink/archive/refs/tags/666.6.6.zip" $nonExistingRelease.Url().ToString() -CaseSensitive
 		}
 
 		It "should point to a GitHub release if the release is provided as binary" {
-			$existingRelease.Url() | Should -BeExactly "https://github.com/HaxeFoundation/hashlink/releases/download/1.15/hashlink-1.15.0.zip"
+			Should-BeString "https://github.com/HaxeFoundation/hashlink/releases/download/1.15/hashlink-1.15.0.zip" $existingRelease.Url().ToString() -CaseSensitive
 		}
 	}
 
 	Context "Find" {
 		It "should return `$null if no release matches the version constraint" {
-			[Release]::Find($nonExistingRelease.Version.ToString()) | Should -BeNullOrEmpty
-			[Release]::Find("2") | Should -BeNullOrEmpty
-			[Release]::Find(">1.15")?.Version | Should -BeNullOrEmpty
+			Should-BeNull ([Release]::Find($nonExistingRelease.Version.ToString()))
+			Should-BeNull ([Release]::Find("2"))
+			Should-BeNull ([Release]::Find(">1.15")?.Version)
 		}
 
 		It "should return the release corresponding to the version constraint if it exists" {
-			[Release]::Find("latest") | Should -Be $latestRelease
-			[Release]::Find("*") | Should -Be $latestRelease
-			[Release]::Find("1") | Should -Be $latestRelease
+			Should-BeSame $latestRelease ([Release]::Find("latest"))
+			Should-BeSame $latestRelease ([Release]::Find("*"))
+			Should-BeSame $latestRelease ([Release]::Find("1"))
 
-			[Release]::Find("=1.8.0")?.Version | Should -Be ([Release] "1.8.0")
-			[Release]::Find("<1.10")?.Version | Should -Be ([Release] "1.9.0")
-			[Release]::Find("<=1.10")?.Version | Should -Be ([Release] "1.10.0")
+			Should-Be ([Release] "1.8.0") ([Release]::Find("=1.8.0")?.Version)
+			Should-Be ([Release] "1.9.0") ([Release]::Find("<1.10")?.Version)
+			Should-Be ([Release] "1.10.0") ([Release]::Find("<=1.10")?.Version)
 		}
 
 		It "should throw if the version constraint is invalid" -ForEach "abc", "?1.10" {
-			{ [Release]::Find($_) } | Should -Throw
+			Should-Throw -ScriptBlock { [Release]::Find($_) }
 		}
 	}
 
 	Context "Get" {
 		It "should return `$null if no release matches to the version number" {
-			[Release]::Get($nonExistingRelease.Version) | Should -BeNullOrEmpty
+			Should-BeNull ([Release]::Get($nonExistingRelease.Version))
 		}
 
 		It "should return the release corresponding to the version number if it exists" {
-			[Release]::Get("1.8.0")?.Version | Should -Be ([semver] "1.8.0")
+			Should-Be ([semver] "1.8.0") ([Release]::Get("1.8.0")?.Version)
 		}
 	}
 
 	Context "GetAsset" {
 		It "should return `$null if no asset matches the platform" {
-			$nonExistingRelease.GetAsset([Platform]::Windows) | Should -BeNullOrEmpty
+			Should-BeNull $nonExistingRelease.GetAsset([Platform]::Windows)
 		}
 
 		It "should return the asset corresponding to the platform number if it exists" {
-			$existingRelease.GetAsset([Platform]::Windows)?.File | Should -BeExactly "hashlink-1.15.0.zip"
+			Should-BeString "hashlink-1.15.0.zip" $existingRelease.GetAsset([Platform]::Windows)?.File -CaseSensitive
 		}
 	}
 }

@@ -6,17 +6,17 @@ Describe "Test-Release" {
 	BeforeAll { . "$PSScriptRoot/BeforeAll.ps1" }
 
 	It "should return `$true for the latest release" {
-		Test-HashLinkRelease $latestRelease.Version | Should-BeTrue
-		$latestRelease | Test-HashLinkRelease | Should-BeTrue
+		Should-BeTrue (Test-HashLinkRelease $latestRelease.Version)
+		Should-BeTrue ($latestRelease | Test-HashLinkRelease)
 	}
 
 	It "should return `$true if the release exists" {
-		Test-HashLinkRelease $existingRelease.Version | Should-BeTrue
-		$existingRelease | Test-HashLinkRelease | Should-BeTrue
+		Should-BeTrue (Test-HashLinkRelease $existingRelease.Version)
+		Should-BeTrue ($existingRelease | Test-HashLinkRelease)
 	}
 
 	It "should return `$false if the release does not exist" {
-		Test-HashLinkRelease $nonExistingRelease.Version | Should-BeFalse
-		$nonExistingRelease | Test-HashLinkRelease | Should-BeFalse
+		Should-BeFalse (Test-HashLinkRelease $nonExistingRelease.Version)
+		Should-BeFalse ($nonExistingRelease | Test-HashLinkRelease)
 	}
 }

@@ -22,10 +22,10 @@ Describe "Setup" {
 			$path = $setup.Download()
 
 			$executable = "hl$($isSource ? ".vcxproj" : ($IsWindows ? ".exe" : [string]::Empty))"
-			Join-Path $path $executable | Should -Exist
+			Should-BeTrue (Join-Path $path $executable | Test-Path)
 
 			$dynamicLibrary = "libhl$($isSource ? ".vcxproj" : ($IsMacOS ? ".dylib" : ($IsLinux ? ".so" : ".dll")))"
-			Join-Path $path $dynamicLibrary | Should -Exist
+			Should-BeTrue (Join-Path $path $dynamicLibrary | Test-Path)
 		}
 	}
 
@@ -34,9 +34,9 @@ Describe "Setup" {
 			$setup = [Setup]::new($latestRelease)
 			$path = $setup.Install()
 
-			$Env:PATH | Should -BeLikeExactly "*$path*"
+			Should-BeLikeString "*$path*" $Env:PATH -CaseSensitive
 			if ($IsLinux -and $setup.Release.IsSource()) {
-				$Env:LD_LIBRARY_PATH | Should -BeLikeExactly "*/usr/local/bin*"
+				Should-BeLikeString "*/usr/local/bin*" $Env:LD_LIBRARY_PATH -CaseSensitive
 			}
 		}
 	}
