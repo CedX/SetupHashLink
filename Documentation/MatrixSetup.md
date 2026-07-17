@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: lix-pm/setup-lix@master
-      - uses: cedx/SetupHashLink@v8
+      - uses: CedX/SetupHashLink@v8
         with:
           version: ${{matrix.version}}
       - run: hl --version

@@ -10,7 +10,7 @@ Set up the HashLink VM in a workflow:
 
 ```yaml
 steps:
-  - uses: cedx/SetupHashLink@v8
+  - uses: CedX/SetupHashLink@v8
   - run: hl --version
 ```
 
