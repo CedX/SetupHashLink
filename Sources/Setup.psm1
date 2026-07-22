@@ -39,7 +39,7 @@ class Setup {
 		Expand-Archive $file -DestinationPath $directory -Force
 
 		$folders = Get-ChildItem $directory -Directory
-		if ($folders.Count -ne 1) { throw [DirectoryNotFoundException] "No subfolders or multiple subfolders found in: $directory" }
+		if ($folders.Count -ne 1) { throw [DirectoryNotFoundException]::new("No subfolders or multiple subfolders found in: $directory") }
 		return Join-Path $directory $folders[0].BaseName
 	}
 
@@ -70,7 +70,7 @@ class Setup {
 	#>
 	hidden [string] Compile([string] $Directory) {
 		$platform = Get-Platform
-		if ($platform -eq [Platform]::Windows) { throw [PlatformNotSupportedException] "Compilation is not supported on Windows platform." }
+		if ($platform -eq [Platform]::Windows) { throw [PlatformNotSupportedException]::new("Compilation is not supported on Windows platform.") }
 
 		Push-Location $Directory
 		$path = $platform -eq [Platform]::MacOS ? $this.CompileMacOS() : $this.CompileLinux()

@@ -168,7 +168,7 @@ class Release {
 			"^(\*|latest)$" { "=", [Release]::Latest().Version.ToString(); break }
 			"^([^\d]+)\d" { $Matches[1], ($Constraint -replace "^([^\d]+)"); break }
 			"^\d" { ">=", $Constraint; break }
-			default { throw [FormatException] "The version constraint is invalid." }
+			default { throw [FormatException]::new("The version constraint is invalid.") }
 		}
 
 		$predicate = switch ($operator) {
@@ -177,7 +177,7 @@ class Release {
 			"=" { { [semver] $_.Version -eq $semver }; break }
 			"<=" { { [semver] $_.Version -le $semver }; break }
 			"<" { { [semver] $_.Version -lt $semver }; break }
-			default { throw [FormatException] "The version constraint is invalid." }
+			default { throw [FormatException]::new("The version constraint is invalid.") }
 		}
 
 		$releases = [Release]::Data.Where($predicate, "First")
