@@ -69,7 +69,7 @@
 	"patternMatchClauseIndentation": {"enabled": true},
 	"patternMatchClausesOnNewLine": {"enabled": false},
 	"patternMatchExpressionIndentation": {"enabled": true},
-	"patternMatchOrClausesOnNewLine": {"enabled": true},
+	"patternMatchOrClausesOnNewLine": {"enabled": false},
 	"privateValuesNames": {"enabled": true, "config": {"naming": "CamelCase", "underscores": "AllowPrefix"}},
 	"publicValuesNames": {"enabled": true, "config": {"underscores": "AllowPrefix"}},
 	"raiseWithSingleArgument": {"enabled": true},
