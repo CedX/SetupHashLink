@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Company>Cedric-Belin.fr</Company>
+		<Copyright>© Cédric Belin</Copyright>
+		<Description>Set up your GitHub Actions workflow with a specific version of the HashLink VM.</Description>
+		<Product>Setup HashLink</Product>
+		<Version>2026.10.0</Version>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AssemblyName>Belin.SetupHashLink</AssemblyName>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<HotReloadAutoRestart>true</HotReloadAutoRestart>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<OutDir>../Binaries</OutDir>
+		<RootNamespace>Belin.SetupHashLink</RootNamespace>
+		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+		<TargetFramework>net10.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="$(AssemblyName).Tests" />
+		<PackageReference Update="FSharp.Core" Version="10.1.402" />
+		<PackageReference Include="System.Management.Automation" Version="7.6.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="Release.fs" />
+		<Compile Include="Cmdlets/*.fs" />
+	</ItemGroup>
+</Project>

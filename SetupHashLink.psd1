@@ -2,7 +2,7 @@
 	DefaultCommandPrefix = "HashLink"
 	ModuleVersion = "2026.10.0"
 	PowerShellVersion = "7.6"
-	RootModule = "Sources/Main.psm1"
+	RootModule = "Binaries/Belin.SetupHashLink.dll"
 
 	Author = "Cédric Belin <cedx@outlook.com>"
 	CompanyName = "Cedric-Belin.fr"
@@ -11,10 +11,11 @@
 	GUID = "6bb1e481-9f7c-4dd0-922c-fdf44f2c0e78"
 
 	AliasesToExport = @()
-	CmdletsToExport = @()
+	FunctionsToExport = @()
+	RequiredAssemblies = , "Binaries/FSharpCore.dll"
 	VariablesToExport = @()
 
-	FunctionsToExport = @(
+	CmdletsToExport = @(
 		"Find-Release"
 		"Get-Release"
 		"Install-Release"
