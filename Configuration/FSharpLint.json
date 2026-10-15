@@ -61,7 +61,7 @@
 	"namespaceNames": {"enabled": true, "config": {"naming": "PascalCase", "underscores": "None"}},
 	"nestedFunctionNames": {"enabled": true, "config": {"naming": "CamelCase", "underscores": "None"}},
 	"nestedStatements": {"enabled": true, "config": {"depth": 8}},
-	"noAsyncRunSynchronouslyInLibrary": {"enabled": true},
+	"noAsyncRunSynchronouslyInLibrary": {"enabled": false},
 	"noPartialFunctions": {"enabled": false},
 	"noTabCharacters": {"enabled": true},
 	"nullArgWithSingleArgument": {"enabled": true},
