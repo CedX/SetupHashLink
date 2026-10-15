@@ -12,9 +12,9 @@ jobs:
       - name: Fetch sources
         uses: actions/checkout@v7
       - name: Set up Lix
-        uses: lix-pm/setup-lix@master
+        uses: lix-pm/setup-lix@2.0.0
       - name: Set up HashLink
-        uses: CedX/SetupHashLink@v9
+        uses: CedX/SetupHashLink@v2026
         with:
           version: latest
       - name: Install dependencies

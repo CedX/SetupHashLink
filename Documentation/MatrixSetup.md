@@ -12,8 +12,8 @@ jobs:
         version: [<=1.10, latest]
     steps:
       - uses: actions/checkout@v5
-      - uses: lix-pm/setup-lix@master
-      - uses: CedX/SetupHashLink@v9
+      - uses: lix-pm/setup-lix@2.0.0
+      - uses: CedX/SetupHashLink@v2026
         with:
           version: ${{matrix.version}}
       - run: hl --version

@@ -7,8 +7,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: lix-pm/setup-lix@master
-      - uses: CedX/SetupHashLink@v9
+      - uses: lix-pm/setup-lix@2.0.0
+      - uses: CedX/SetupHashLink@v2026
         with:
           version: =1.16.0
       - run: hl --version
