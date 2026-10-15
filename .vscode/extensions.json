@@ -1,5 +1,6 @@
 {
 	"recommendations": [
+		"ionide.ionide-fsharp",
 		"ms-vscode.powershell"
 	]
 }

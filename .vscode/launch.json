@@ -5,6 +5,7 @@
 			"name": "Script",
 			"type": "PowerShell",
 			"request": "launch",
+			"preLaunchTask": "Build",
 			"script": "${workspaceFolder}/Debug.ps1",
 			"createTemporaryIntegratedConsole": true
 		}
