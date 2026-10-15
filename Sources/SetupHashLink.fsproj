@@ -27,7 +27,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Include="Release.fs" />
+		<Compile Include="Platform.fs" />
 		<Compile Include="Cmdlets/*.fs" />
 	</ItemGroup>
 </Project>
