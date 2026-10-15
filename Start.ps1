@@ -1,12 +1,33 @@
 #!/usr/bin/env pwsh
-using module ./SetupHashLink.psd1
+param (
+	# The name of the cmdlet to run.
+	[Parameter(Mandatory, Position = 1)]
+	[ArgumentCompleter({
+		param ([string] $commandName, [string] $parameterName, [string] $wordToComplete)
+		$module = Import-PowerShellDataFile "$PSScriptRoot/SetupHashLink.psd1"
+		$cmdlets = $module.CmdletsToExport + $module.FunctionsToExport
+		$cmdlets -like "$wordToComplete*" -replace "^([^-]+)-", "`$1-$($module.DefaultCommandPrefix)"
+	})]
+	[ValidateScript({
+		$module = Import-PowerShellDataFile "$PSScriptRoot/SetupHashLink.psd1"
+		$cmdlets = $module.CmdletsToExport + $module.FunctionsToExport
+		$cmdlets -contains ($_ -replace "^([^-]+)-$($module.DefaultCommandPrefix)", "`$1-")
+	}, ErrorMessage = "The specified command does not exist.")]
+	[string] $Command,
 
-$ErrorActionPreference = "Stop"
-$PSNativeCommandUseErrorActionPreference = $true
-if (-not $IsWindows) { Write-Warning "This action does not support Linux and macOS platforms." }
+	# The parameters of the cmdlet to run.
+	[Parameter(Position = 2, ValueFromRemainingArguments)]
+	[string[]] $Parameters = @()
+)
 
-$release = Find-HashLinkRelease ($Env:SETUP_HASHLINK_VERSION ? $Env:SETUP_HASHLINK_VERSION : "Latest")
-if (-not $release) { Write-Error "No release matches the specified version constraint."; exit 1 }
+$scriptBlock = {
+	param ([string] $scriptRoot, [string] $command, [string[]] $parameters)
+	$ErrorActionPreference = "Stop"
+	$PSNativeCommandUseErrorActionPreference = $true
 
-$path = Install-HashLinkRelease -InputObject $release
-"HashLink $($release.Version) successfully installed in ""$path""."
+	Import-Module "$scriptRoot/SetupHashLink.psd1"
+	$argumentList = $parameters | ForEach-Object { $_ -like "* *" ? "'$_'" : $_ }
+	Invoke-Expression "$command $($argumentList -join " ")"
+}
+
+pwsh -Command $scriptBlock -args $PSScriptRoot, $Command, $Parameters
