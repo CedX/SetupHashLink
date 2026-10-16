@@ -2,6 +2,7 @@
 
 ## Version [2026.10.0](https://github.com/CedX/SetupHashLink/compare/v9.0.0...v2026.10.0)
 - Ported the cmdlets to [F#](https://learn.microsoft.com/en-us/dotnet/fsharp).
+- Added the `Get-LatestRelease` cmdlet.
 - Switched to a year-based versioning.
 
 ## Version [9.0.0](https://github.com/CedX/SetupHashLink/compare/v8.2.0...v9.0.0)
