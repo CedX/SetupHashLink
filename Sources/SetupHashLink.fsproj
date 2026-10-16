@@ -28,6 +28,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Include="ReleaseAsset.fs" />
 		<Compile Include="Release.fs" />
 		<Compile Include="Cmdlets/*.fs" />
 	</ItemGroup>

@@ -1,26 +1,10 @@
-namespace rec Belin.SetupHashLink
+namespace Belin.SetupHashLink
 
 open System
 open System.IO
 open System.Management.Automation
 open System.Text.Json
 open System.Text.RegularExpressions
-
-/// Identifies an operating system or platform.
-type Platform =
-  | Linux = 1
-  | MacOS = 2
-  | Windows = 3
-
-/// Represents an asset of a HashLink release.
-type ReleaseAsset =
-  {
-    /// The target file.
-    File: string
-
-    /// The target file.
-    Platform: Platform
-  }
 
 /// Represents a HashLink release.
 type Release =
@@ -32,10 +16,27 @@ type Release =
     Version: Version
   }
 
+  /// Value indicating whether this release is provided as source code.
+  member this.IsSource: bool = this.GetAsset(ReleaseAsset.CurrentPlatform).IsNone
+
+  /// The associated Git tag.
+  member this.Tag: string =
+    match this.Version.Build with
+    | value when value > 0 -> $"{this.Version.Major}.{this.Version.Minor}.{this.Version.Build}"
+    | _ -> $"{this.Version.Major}.{this.Version.Minor}"
+
   /// The download URL.
-  // member this.Url: Uri =
-  //   let baseUrl = if this = Release.latest then "https://downloads.apache.org/ant/binaries/" else "https://archive.apache.org/dist/ant/binaries/"
-  //   Uri(Uri baseUrl, $"apache-ant-{this.Version}-bin.zip")
+  member this.Url: Uri =
+    let path =
+      match this.GetAsset ReleaseAsset.CurrentPlatform with
+      | Some asset -> $"releases/download/{this.Tag}/{asset.File}"
+      | None -> $"archive/refs/tags/{this.Tag}.zip"
+
+    Uri(Uri "https://github.com/HaxeFoundation/hashlink/", path)
+
+  /// Gets the asset corresponding to the specified platform.
+  member this.GetAsset(platform: ReleaseAsset.Platform): ReleaseAsset option =
+    this.Assets |> List.tryFind (fun asset -> asset.Platform = platform)
 
 /// Contains operations for working with HashLink releases.
 module Release =

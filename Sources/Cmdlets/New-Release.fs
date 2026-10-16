@@ -28,7 +28,7 @@ type NewReleaseAsset() =
 
   /// The target platform.
   [<Parameter(Mandatory = true, Position = 1)>]
-  member val Platform = Platform.Windows with get, set
+  member val Platform = ReleaseAsset.Platform.Windows with get, set
 
   /// The target file.
   [<Parameter(Mandatory = true, Position = 2)>]
