@@ -5,6 +5,7 @@ open System
 open System.Management.Automation
 
 /// Installs the HashLink VM, after downloading it.
+/// Returns the path to the installation directory.
 [<Cmdlet(VerbsLifecycle.Install, "Release", DefaultParameterSetName = "Constraint"); OutputType(typeof<string>)>]
 type InstallRelease() =
   inherit PSCmdlet()
@@ -17,10 +18,6 @@ type InstallRelease() =
   [<Parameter(Mandatory = true, ParameterSetName = "InputObject", ValueFromPipeline = true)>]
   member val InputObject: Release | null = null with get, set
 
-  /// Value indicating whether to fetch the Ant optional tasks.
-  [<Parameter>]
-  member val OptionalTasks = SwitchParameter false with get, set
-
   /// Performs execution of this command.
   override this.ProcessRecord() =
     let input =
@@ -30,8 +27,8 @@ type InstallRelease() =
 
     match input with
     | Some release when Release.exists release.Version -> ()
-      // TODO let outputPath = Setup(release).Install(this.OptionalTasks)
+      // TODO let outputPath = Setup(release).Install()
       // TODO this.WriteObject outputPath
     | _ ->
       let ex = InvalidOperationException "No release matches the specified version constraint."
-      this.WriteError (ErrorRecord(ex, "Setup.Install", ErrorCategory.NotInstalled, input))
+      this.WriteError (ErrorRecord(ex, "Setup.Install", ErrorCategory.ObjectNotFound, input))

@@ -6,6 +6,12 @@ open System.Management.Automation
 open System.Text.Json
 open System.Text.RegularExpressions
 
+/// Identifies an operating system or platform.
+type Platform =
+  | Linux = 1
+  | MacOS = 2
+  | Windows = 3
+
 /// Represents an asset of a HashLink release.
 type ReleaseAsset =
   {
@@ -33,7 +39,6 @@ type Release =
 
 /// Contains operations for working with HashLink releases.
 module Release =
-
 
   /// The list of all Apache Ant releases.
   let internal data: Release list =
