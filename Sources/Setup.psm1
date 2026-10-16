@@ -1,29 +1,8 @@
-using namespace System.IO
-using module ./Platform.psm1
-using module ./Release.psm1
-
 <#
 .SYNOPSIS
 	Manages the download and installation of the HashLink VM.
 #>
 class Setup {
-
-	<#
-	.SYNOPSIS
-		The release to download and install.
-	#>
-	[ValidateNotNull()]
-	[Release] $Release
-
-	<#
-	.SYNOPSIS
-		Creates a new setup.
-	.PARAMETER Release
-		The release to download and install.
-	#>
-	Setup([Release] $Release) {
-		$this.Release = $Release
-	}
 
 	<#
 	.SYNOPSIS
