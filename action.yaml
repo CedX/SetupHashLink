@@ -9,7 +9,7 @@ branding:
 inputs:
   version:
     description: The version constraint of the HashLink VM.
-    default: latest
+    default: Latest
     required: false
 
 runs:

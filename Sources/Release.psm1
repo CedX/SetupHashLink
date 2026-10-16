@@ -149,7 +149,7 @@ class Release {
 	.OUTPUTS
 		The download URL.
 	#>
-	[uri] Url() {
+	[uri] Url {
 		$asset = $this.GetAsset((Get-Platform))
 		$baseUrl = [uri] "https://github.com/HaxeFoundation/hashlink/"
 		return [uri]::new($baseUrl, $asset ? "releases/download/$($this.Tag())/$($asset.File)" : "archive/refs/tags/$($this.Tag()).zip")

@@ -85,7 +85,7 @@
 	"tupleCommaSpacing": {"enabled": true},
 	"tupleIndentation": {"enabled": true},
 	"tupleOfWildcards": {"enabled": true},
-	"tupleParentheses": {"enabled": true},
+	"tupleParentheses": {"enabled": false},
 	"typedItemSpacing": {"enabled": true, "config": {"typedItemStyle": "SpaceAfter"}},
 	"typeNames": {"enabled": true, "config": {"naming": "PascalCase", "underscores": "None"}},
 	"typePrefixing": {"enabled": false},

@@ -11,6 +11,7 @@
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>Belin.SetupHashLink</AssemblyName>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<HotReloadAutoRestart>true</HotReloadAutoRestart>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
@@ -28,6 +29,7 @@
 
 	<ItemGroup>
 		<Compile Include="Platform.fs" />
+		<Compile Include="Release.fs" />
 		<Compile Include="Cmdlets/*.fs" />
 	</ItemGroup>
 </Project>

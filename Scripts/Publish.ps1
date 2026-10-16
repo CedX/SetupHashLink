@@ -8,7 +8,7 @@ else {
 
 "Checking the status of the compiled assemblies..."
 $status = git status
-if (($status -like "*Binaries/Belin.SetupAnt.dll*") -or ($status -like "Binaries/FSharp.Core.dll")) {
+if (($status -like "*Binaries/FSharp.Core.dll*") -or ($status -like "*Binaries/Belin.SetupHashLink.dll*")) {
 	"The compiled assemblies must be committed!"
 	exit 2
 }
