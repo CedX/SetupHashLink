@@ -51,7 +51,7 @@ class Setup {
 	#>
 	[string] Install() {
 		$directory = $this.Download()
-		$isSource = $this.Release.IsSource()
+		$isSource = $this.Release.IsSource
 		if ($isSource -and ($Env:CI -eq "true")) { $this.Compile($directory) }
 
 		$binFolder = $isSource ? (Join-Path $directory bin) : $directory

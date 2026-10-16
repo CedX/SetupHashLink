@@ -18,7 +18,7 @@ Describe "Setup" {
 	Context "Download" {
 		It "should properly download and extract the HashLink VM" {
 			$setup = [Setup]::new($latestRelease)
-			$isSource = $setup.Release.IsSource()
+			$isSource = $setup.Release.IsSource
 			$path = $setup.Download()
 
 			$executable = "hl$($isSource ? ".vcxproj" : ($IsWindows ? ".exe" : [string]::Empty))"
@@ -35,7 +35,7 @@ Describe "Setup" {
 			$path = $setup.Install()
 
 			Should-BeLikeString "*$path*" $Env:PATH -CaseSensitive
-			if ($IsLinux -and $setup.Release.IsSource()) {
+			if ($IsLinux -and $setup.Release.IsSource) {
 				Should-BeLikeString "*/usr/local/bin*" $Env:LD_LIBRARY_PATH -CaseSensitive
 			}
 		}

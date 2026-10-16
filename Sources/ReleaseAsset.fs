@@ -1,11 +1,13 @@
 namespace Belin.SetupHashLink
 
 open System
+open System.Text.Json.Serialization
 
 /// Contains operations for working with release assets.
 module ReleaseAsset =
 
   /// Identifies an operating system or platform.
+  [<JsonConverter(typeof<JsonStringEnumConverter>)>]
   type Platform =
     | Linux = 1
     | MacOS = 2
