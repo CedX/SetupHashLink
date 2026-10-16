@@ -12,11 +12,12 @@
 
 	AliasesToExport = @()
 	FunctionsToExport = @()
-	RequiredAssemblies = , "Binaries/FSharpCore.dll"
+	RequiredAssemblies = , "Binaries/FSharp.Core.dll"
 	VariablesToExport = @()
 
 	CmdletsToExport = @(
 		"Find-Release"
+		"Get-LatestRelease"
 		"Get-Release"
 		"Install-Release"
 		"New-Release"
