@@ -5,8 +5,8 @@ $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 if (-not $IsWindows) { Write-Warning "This action does not support Linux and macOS platforms." }
 
-$release = Find-HashLinkRelease ($Env:SETUP_HASHLINK_VERSION ? $Env:SETUP_HASHLINK_VERSION : "Latest")
+$release = $Env:SETUP_HASHLINK_VERSION ? $Env:SETUP_HASHLINK_VERSION : "Latest" | Find-HashLinkRelease
 if (-not $release) { Write-Error "No release matches the specified version constraint."; exit 1 }
 
-$path = Install-HashLinkRelease -InputObject $release
+$path = $release | Install-HashLinkRelease
 "HashLink $($release.Version) successfully installed in ""$path""."

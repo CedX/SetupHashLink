@@ -11,8 +11,9 @@ type InstallRelease() =
   inherit PSCmdlet()
 
   /// The version constraint of the release to be installed.
+  /// Use `*` or `Latest` to install the latest release.
   [<Parameter(Mandatory = true, ParameterSetName = "Constraint", Position = 1, ValueFromPipeline = true)>]
-  member val Constraint = "" with get, set
+  member val Constraint = "Latest" with get, set
 
   /// The instance of the release to be installed.
   [<Parameter(Mandatory = true, ParameterSetName = "InputObject", ValueFromPipeline = true)>]
@@ -26,9 +27,9 @@ type InstallRelease() =
       | _ -> Release.find this.Constraint
 
     match input with
-    | Some release when Release.exists release.Version -> ()
-      // TODO let outputPath = Setup(release).Install()
-      // TODO this.WriteObject outputPath
+    | Some release when Release.exists release.Version ->
+      let installTask = Setup(release).Install()
+      this.WriteObject (installTask.GetAwaiter().GetResult())
     | _ ->
       let ex = InvalidOperationException "No release matches the specified version constraint."
       this.WriteError (ErrorRecord(ex, "Setup.Install", ErrorCategory.ObjectNotFound, input))

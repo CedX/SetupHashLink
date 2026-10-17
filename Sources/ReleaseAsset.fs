@@ -15,10 +15,9 @@ module ReleaseAsset =
 
   /// The current platform.
   let CurrentPlatform =
-    match true with
-    | true when OperatingSystem.IsLinux() -> Platform.Linux
-    | true when OperatingSystem.IsMacOS() -> Platform.MacOS
-    | _ -> Platform.Windows
+    if OperatingSystem.IsLinux() then Platform.Linux
+    elif OperatingSystem.IsMacOS() then Platform.MacOS
+    else Platform.Windows
 
 /// Represents an asset of a HashLink release.
 type ReleaseAsset =

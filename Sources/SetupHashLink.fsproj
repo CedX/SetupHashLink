@@ -30,7 +30,7 @@
 	<ItemGroup>
 		<Compile Include="ReleaseAsset.fs" />
 		<Compile Include="Release.fs" />
-		<Compile Include="Setup" />
+		<Compile Include="Setup.fs" />
 		<Compile Include="Cmdlets/*.fs" />
 	</ItemGroup>
 </Project>
