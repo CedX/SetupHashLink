@@ -1,0 +1,13 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Cmdlets",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "Build",
+			"program": "pwsh",
+			"args": ["-NoExit", "-NoProfile", "-Command", "Import-Module ${workspaceFolder}/SetupHashLink.psd1"]
+		}
+	]
+}
