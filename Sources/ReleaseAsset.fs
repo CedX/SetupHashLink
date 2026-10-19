@@ -1,6 +1,6 @@
 namespace Belin.SetupHashLink
 
-open System
+open System.Management.Automation
 open System.Text.Json.Serialization
 
 /// Contains operations for working with release assets.
@@ -15,8 +15,8 @@ module ReleaseAsset =
 
   /// The current platform.
   let CurrentPlatform =
-    if OperatingSystem.IsLinux() then Platform.Linux
-    elif OperatingSystem.IsMacOS() then Platform.MacOS
+    if Platform.IsLinux then Platform.Linux
+    elif Platform.IsMacOS then Platform.MacOS
     else Platform.Windows
 
 /// Represents an asset of a HashLink release.
