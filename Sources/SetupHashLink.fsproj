@@ -23,8 +23,8 @@
 
 	<ItemGroup>
 		<InternalsVisibleTo Include="$(AssemblyName).Tests" />
-		<PackageReference Update="FSharp.Core" Version="10.1.402" />
-		<PackageReference Include="System.Management.Automation" Version="7.6.5" />
+		<PackageReference Update="FSharp.Core" Version="10.1.403" />
+		<PackageReference Include="System.Management.Automation" Version="7.6.6" />
 	</ItemGroup>
 
 	<ItemGroup>
