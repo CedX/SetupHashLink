@@ -1,5 +1,6 @@
 using module ./Tools.psm1
 
 Write-Information "Checking for outdated dependencies..."
-(Import-PowerShellDataFile PSModules.psd1).Keys | Get-InstalledPSResource | Test-PSResourceUpdate
-Test-NuGetPackageUpdate
+dotnet package list --outdated
+$modules = Import-PowerShellDataFile PSModules.psd1
+$modules.Keys | Get-InstalledPSResource | Test-PSResourceUpdate

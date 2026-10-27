@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 param (
-	# The name of the cmdlet to run.
+	# The command to invoke.
 	[Parameter(Mandatory, Position = 1)]
 	[ArgumentCompleter({
 		param ([string] $commandName, [string] $parameterName, [string] $wordToComplete)
@@ -12,22 +12,24 @@ param (
 		$module = Import-PowerShellDataFile "$PSScriptRoot/SetupHashLink.psd1"
 		$cmdlets = $module.CmdletsToExport + $module.FunctionsToExport
 		$cmdlets -contains ($_ -replace "^([^-]+)-$($module.DefaultCommandPrefix)", "`$1-")
-	}, ErrorMessage = "The specified script does not exist.")]
+	}, ErrorMessage = "The specified command does not exist.")]
 	[string] $Command,
 
-	# The parameters of the cmdlet to run.
-	[Parameter(Position = 2, ValueFromRemainingArguments)]
-	[string[]] $Parameters = @()
+	# The command arguments.
+	[Parameter(ValueFromRemainingArguments)]
+	[string[]] $Arguments = @()
 )
 
 $scriptBlock = {
-	param ([string] $scriptRoot, [string] $command, [string[]] $parameters)
+	param ([string] $scriptRoot, [string] $command, [string[]] $arguments)
+
 	$ErrorActionPreference = "Stop"
+	$InformationPreference = "Continue"
 	$PSNativeCommandUseErrorActionPreference = $true
 
 	Import-Module "$scriptRoot/SetupHashLink.psd1"
-	$argumentList = $parameters | ForEach-Object { $_ -like "* *" ? "'$_'" : $_ }
+	$argumentList = $arguments | ForEach-Object { $_ -like "* *" ? "'$_'" : $_ }
 	Invoke-Expression "$command $($argumentList -join " ")"
 }
 
-pwsh -Command $scriptBlock -args $PSScriptRoot, $Command, $Parameters
+pwsh -Command $scriptBlock -args $PSScriptRoot, $Command, $Arguments
