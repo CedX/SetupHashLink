@@ -1,5 +1,5 @@
 using module PSScriptAnalyzer
-using module ./Cmdlets.psm1
+using module ./Tools.psm1
 
 "Performing the static analysis of source code..."
 Invoke-FSharpLint SetupHashLink.slnx -Configuration Configuration/FSharpLint.json
