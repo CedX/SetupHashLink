@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 param (
-	# The name of the task to invoke.
+	# The script to invoke.
 	[Parameter(Position = 1)]
 	[ArgumentCompleter({
 		param ([string] $commandName, [string] $parameterName, [string] $wordToComplete)
@@ -8,14 +8,15 @@ param (
 	})]
 	[ValidateScript(
 		{ Test-Path "$PSScriptRoot/Scripts/$_.ps1" -PathType Leaf },
-		ErrorMessage = "The specified command does not exist."
+		ErrorMessage = "The specified script does not exist."
 	)]
-	[string] $Command = "Default",
+	[string] $Script = "Default",
 
 	# Value indicating whether to enable the release configuration.
 	[switch] $Release
 )
 
 $ErrorActionPreference = "Stop"
+$InformationPreference = "Continue"
 $PSNativeCommandUseErrorActionPreference = $true
-& "$PSScriptRoot/Scripts/$Command.ps1"
+& "$PSScriptRoot/Scripts/$Script.ps1"

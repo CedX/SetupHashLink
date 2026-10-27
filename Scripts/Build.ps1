@@ -1,4 +1,4 @@
 using module ./Tools.psm1
 
-"Building the solution..."
+Write-Information "Building the solution..."
 Build-DotNetSolution ($Release ? "Release" : "Debug")

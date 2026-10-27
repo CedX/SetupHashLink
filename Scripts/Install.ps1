@@ -1,2 +1,2 @@
-"Installing the dependencies..."
+Write-Information "Installing the dependencies..."
 Install-PSResource -RequiredResourceFile PSModules.psd1 -TrustRepository -WarningAction Ignore
