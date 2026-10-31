@@ -1,6 +1,6 @@
 {
-	"version": 1,
 	"isRoot": true,
+	"version": 1,
 	"tools": {
 		"dotnet-fsharplint": {
 			"commands": ["dotnet-fsharplint"],
