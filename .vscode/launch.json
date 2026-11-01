@@ -7,7 +7,7 @@
 			"request": "launch",
 			"preLaunchTask": "Build",
 			"program": "pwsh",
-			"args": ["-NoExit", "-NoProfile", "-Command", "Import-Module ${workspaceFolder}/SetupHashLink.psd1"]
+			"args": ["-NoExit", "-NoProfile", "-Command", "Import-Module ${workspaceFolder}${/}SetupHashLink.psd1"]
 		}
 	]
 }
