@@ -82,7 +82,7 @@
 	"synchronousFunctionNames": {"enabled": true},
 	"trailingNewLineInFile": {"enabled": false},
 	"trailingWhitespaceOnLine": {"enabled": true, "config": {"numberOfSpacesAllowed": 1, "oneSpaceAllowedAfterOperator": true, "ignoreBlankLines": true}},
-	"tupleCommaSpacing": {"enabled": true},
+	"tupleCommaSpacing": {"enabled": false},
 	"tupleIndentation": {"enabled": true},
 	"tupleOfWildcards": {"enabled": true},
 	"tupleParentheses": {"enabled": false},
