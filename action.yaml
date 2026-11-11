@@ -20,8 +20,6 @@ runs:
         ./Install-PowerShell.ps1
         Add-Content $Env:GITHUB_PATH "$Env:LOCALAPPDATA\Microsoft\powershell"
       shell: pwsh
-    - run: Add-Content $Env:GITHUB_PATH ${{github.action_path}}
-      shell: pwsh
     - run: Action.ps1
       shell: pwsh
       env:
