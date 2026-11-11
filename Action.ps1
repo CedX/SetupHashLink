@@ -2,6 +2,7 @@
 using module ./SetupHashLink.psd1
 
 $ErrorActionPreference = "Stop"
+$InformationPreference = "Continue"
 $PSNativeCommandUseErrorActionPreference = $true
 if (-not $IsWindows) { Write-Warning "This action does not support Linux and macOS platforms." }
 

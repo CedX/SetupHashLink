@@ -15,6 +15,11 @@ inputs:
 runs:
   using: composite
   steps:
+    - run: |
+        Invoke-WebRequest "https://aka.ms/install-powershell.ps1" -OutFile Install-PowerShell.ps1
+        ./Install-PowerShell.ps1
+        Add-Content $Env:GITHUB_PATH "$Env:LOCALAPPDATA\Microsoft\powershell"
+      shell: pwsh
     - run: Add-Content $Env:GITHUB_PATH ${{github.action_path}}
       shell: pwsh
     - run: Action.ps1
