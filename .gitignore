@@ -1,6 +1,6 @@
-/**/*.user
 /.idea/
 /.vs/
-/*/obj/
+/**/obj/
+/**/*.user
 /Binaries/
 /Temp/
