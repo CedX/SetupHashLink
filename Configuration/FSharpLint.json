@@ -24,7 +24,7 @@
 	"favourNestedFunctions": {"enabled": true},
 	"favourNonMutablePropertyInitialization": {"enabled": true},
 	"favourReRaise": {"enabled": true},
-	"favourSingleton": {"enabled": true},
+	"favourSingleton": {"enabled": false},
 	"favourStaticEmptyFields": {"enabled": false},
 	"favourTypedIgnore": {"enabled": true},
 	"genericTypesNames": {"enabled": true, "config": {"naming": "PascalCase", "underscores": "None"}},
