@@ -17,7 +17,7 @@ type InstallRelease() =
 
   /// The instance of the release to be installed.
   [<Parameter(Mandatory = true, ParameterSetName = "InputObject", ValueFromPipeline = true)>]
-  member val InputObject: Release | null = null with get, set
+  member val InputObject: Release|null = null with get, set
 
   /// Performs execution of this command.
   override this.ProcessRecord() =

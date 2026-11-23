@@ -11,7 +11,7 @@ type NewRelease() =
 
   /// The version number.
   [<Parameter(Mandatory = true, Position = 1, ValueFromPipeline = true)>]
-  member val Version: Version | null = null with get, set
+  member val Version: Version|null = null with get, set
 
   /// The associated assets.
   [<Parameter(Position = 2); ValidateNotNull>]
